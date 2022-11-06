@@ -6,7 +6,7 @@ dataSources:
     name: ImpressionStake
     network: mumbai
     source:
-      address: "0x250Af4E4d69dE7bf6f0d33E7C3C465F91c704505"
+      address: "0x46387Eb5a91DA39b83eB55B337beeCa67FFcbb34"
       abi: ImpressionStake
       startBlock: 29001350
     mapping:
@@ -20,7 +20,8 @@ dataSources:
         - name: ImpressionStake
           file: ImpressionStake\abis\ImpressionStake.json
       eventHandlers:
-        - event: MessageRequestCreated(indexed uint256,indexed address,indexed address,uint256)
+        - event: MessageRequestCreated(indexed uint256,indexed address,indexed
+            address,uint256,bytes32)
           handler: handleMessageRequestCreated
         - event: OwnershipTransferred(indexed address,indexed address)
           handler: handleOwnershipTransferred

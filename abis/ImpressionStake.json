@@ -1,7 +1,16 @@
 [
   {
     "inputs": [
-      { "internalType": "address", "name": "_owner", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_charity",
+        "type": "address"
+      },
       {
         "internalType": "address",
         "name": "_whitelistSignerAddress",
@@ -42,6 +51,12 @@
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "msgHash",
+        "type": "bytes32"
       }
     ],
     "name": "MessageRequestCreated",
@@ -67,24 +82,71 @@
     "type": "event"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "_to",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "_amount",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_msgHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "batchRequestMessage",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "charityFund",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "charityParam",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_requestId", "type": "uint256" },
-      { "internalType": "bytes", "name": "_signature", "type": "bytes" },
-      { "internalType": "bytes", "name": "_messageHash", "type": "bytes" }
+      {
+        "internalType": "uint256",
+        "name": "_requestId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "_signature",
+        "type": "bytes"
+      },
+      {
+        "internalType": "bytes",
+        "name": "_messageHash",
+        "type": "bytes"
+      }
     ],
     "name": "claimMessage",
     "outputs": [],
@@ -93,15 +155,31 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_requestId", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_requestId",
+        "type": "uint256"
+      }
     ],
     "name": "getMessageRequest",
     "outputs": [
       {
         "components": [
-          { "internalType": "address", "name": "from", "type": "address" },
-          { "internalType": "address", "name": "to", "type": "address" },
-          { "internalType": "uint256", "name": "amount", "type": "uint256" }
+          {
+            "internalType": "address",
+            "name": "from",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
         ],
         "internalType": "struct ImpressionStake.MessageRequest",
         "name": "",
@@ -115,7 +193,11 @@
     "inputs": [],
     "name": "impressionTokenAddress",
     "outputs": [
-      { "internalType": "contract IERC20", "name": "", "type": "address" }
+      {
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
@@ -123,7 +205,13 @@
   {
     "inputs": [],
     "name": "owner",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
@@ -137,14 +225,33 @@
   {
     "inputs": [],
     "name": "requestId",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_to", "type": "address" },
-      { "internalType": "uint256", "name": "_amount", "type": "uint256" }
+      {
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_msgHash",
+        "type": "bytes32"
+      }
     ],
     "name": "requestMessage",
     "outputs": [],
@@ -153,7 +260,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_charityFund", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_charityFund",
+        "type": "address"
+      }
     ],
     "name": "setCharity",
     "outputs": [],
@@ -162,7 +273,11 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_charityParam", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_charityParam",
+        "type": "uint256"
+      }
     ],
     "name": "setCharityParam",
     "outputs": [],
@@ -171,7 +286,11 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_cost", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_cost",
+        "type": "uint256"
+      }
     ],
     "name": "setUserCost",
     "outputs": [],
@@ -180,7 +299,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "signer", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "signer",
+        "type": "address"
+      }
     ],
     "name": "setWhitelistSignerAddress",
     "outputs": [],
@@ -189,7 +312,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "newOwner", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
     ],
     "name": "transferOwnership",
     "outputs": [],
@@ -197,9 +324,21 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "name": "userCost",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   }

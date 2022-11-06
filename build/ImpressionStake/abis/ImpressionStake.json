@@ -8,6 +8,11 @@
       },
       {
         "internalType": "address",
+        "name": "_charity",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
         "name": "_whitelistSignerAddress",
         "type": "address"
       },
@@ -46,6 +51,12 @@
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "msgHash",
+        "type": "bytes32"
       }
     ],
     "name": "MessageRequestCreated",
@@ -69,6 +80,29 @@
     ],
     "name": "OwnershipTransferred",
     "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "_to",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "_amount",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_msgHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "batchRequestMessage",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
     "inputs": [],
@@ -212,6 +246,11 @@
         "internalType": "uint256",
         "name": "_amount",
         "type": "uint256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_msgHash",
+        "type": "bytes32"
       }
     ],
     "name": "requestMessage",

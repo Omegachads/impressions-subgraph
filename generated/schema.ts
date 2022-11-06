@@ -77,4 +77,13 @@ export class RequestMessage extends Entity {
   set amount(value: BigInt) {
     this.set("amount", Value.fromBigInt(value));
   }
+
+  get messageHash(): Bytes {
+    let value = this.get("messageHash");
+    return value!.toBytes();
+  }
+
+  set messageHash(value: Bytes) {
+    this.set("messageHash", Value.fromBytes(value));
+  }
 }

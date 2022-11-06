@@ -4,4 +4,5 @@ type RequestMessage @entity {
   from: Bytes! # address
   to: Bytes! # address
   amount: BigInt!
+  messageHash: Bytes!
 }

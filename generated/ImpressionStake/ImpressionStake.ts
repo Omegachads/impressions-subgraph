@@ -38,6 +38,10 @@ export class MessageRequestCreated__Params {
   get amount(): BigInt {
     return this._event.parameters[3].value.toBigInt();
   }
+
+  get msgHash(): Bytes {
+    return this._event.parameters[4].value.toBytes();
+  }
 }
 
 export class OwnershipTransferred extends ethereum.Event {
@@ -238,12 +242,16 @@ export class ConstructorCall__Inputs {
     return this._call.inputValues[0].value.toAddress();
   }
 
-  get _whitelistSignerAddress(): Address {
+  get _charity(): Address {
     return this._call.inputValues[1].value.toAddress();
   }
 
-  get _impressionTokenAddress(): Address {
+  get _whitelistSignerAddress(): Address {
     return this._call.inputValues[2].value.toAddress();
+  }
+
+  get _impressionTokenAddress(): Address {
+    return this._call.inputValues[3].value.toAddress();
   }
 }
 
@@ -251,6 +259,44 @@ export class ConstructorCall__Outputs {
   _call: ConstructorCall;
 
   constructor(call: ConstructorCall) {
+    this._call = call;
+  }
+}
+
+export class BatchRequestMessageCall extends ethereum.Call {
+  get inputs(): BatchRequestMessageCall__Inputs {
+    return new BatchRequestMessageCall__Inputs(this);
+  }
+
+  get outputs(): BatchRequestMessageCall__Outputs {
+    return new BatchRequestMessageCall__Outputs(this);
+  }
+}
+
+export class BatchRequestMessageCall__Inputs {
+  _call: BatchRequestMessageCall;
+
+  constructor(call: BatchRequestMessageCall) {
+    this._call = call;
+  }
+
+  get _to(): Array<Address> {
+    return this._call.inputValues[0].value.toAddressArray();
+  }
+
+  get _amount(): Array<BigInt> {
+    return this._call.inputValues[1].value.toBigIntArray();
+  }
+
+  get _msgHash(): Bytes {
+    return this._call.inputValues[2].value.toBytes();
+  }
+}
+
+export class BatchRequestMessageCall__Outputs {
+  _call: BatchRequestMessageCall;
+
+  constructor(call: BatchRequestMessageCall) {
     this._call = call;
   }
 }
@@ -342,6 +388,10 @@ export class RequestMessageCall__Inputs {
 
   get _amount(): BigInt {
     return this._call.inputValues[1].value.toBigInt();
+  }
+
+  get _msgHash(): Bytes {
+    return this._call.inputValues[2].value.toBytes();
   }
 }
 
